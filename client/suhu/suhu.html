@@ -1,0 +1,61 @@
+<template name="suhu">
+	{{suhulist}}
+	<div class="pt-3">
+        <div class="page-title d-flex">
+          <div class="align-self-center">
+            <a href="#" data-back-button class="me-3 ms-0 icon icon-xxs bg-theme rounded-s shadow-m">
+              <i class="bi bi-chevron-left color-theme font-14"></i>
+            </a>
+          </div>
+          <div class="align-self-center me-auto">
+            <h1 class="color-theme mb-0 font-18">Sensors</h1>
+          </div>
+          <div class="align-self-center ms-auto">
+            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-sidebar" class="icon icon-xxs gradient-highlight color-white shadow-bg shadow-bg-xs rounded-s">
+              <i class="bi bi-list font-20"></i>
+            </a>
+          </div>
+        </div>
+	</div>
+
+  	<div class="card card-style">
+	    <div class="content">
+	        <h4 class="font-800">Data Sensors</h4>
+	      </div>
+	      <div id="charts-demo-1" class="chart"></div>
+	      <div class="divider"></div>
+	      
+	      <div class="content">
+	        <a href="#" class="d-flex pb-3">
+	          <div class="align-self-center">
+	            <span class="icon rounded-s me-2 gradient-green shadow-bg shadow-bg-xs">
+	              <i class="bi bi-droplet font-18 color-white"></i>
+	            </span>
+	          </div>
+	          <div class="align-self-center ps-1">
+	            <h5 class="pt-1 mb-n1">Suhu Terendah</h5>
+	            <p class="mb-0 font-11 opacity-50">12 Jam yang lalu</p>
+	          </div>
+	          <div class="align-self-center ms-auto text-end">
+	            <h4 class="pt-1 mb-n1 color-green-dark">{{minMax.min.suhu}} C</h4>
+	            <p class="mb-0 font-12 opacity-50">12:00</p>
+	          </div>
+	        </a>
+	        <a href="#" class="d-flex pb-3">
+	          <div class="align-self-center">
+	            <span class="icon rounded-s me-2 gradient-red shadow-bg shadow-bg-xs">
+	              <i class="bi bi-wallet font-18 color-white"></i>
+	            </span>
+	          </div>
+	          <div class="align-self-center ps-1">
+	            <h5 class="pt-1 mb-n1">Suhu Tertinggi</h5>
+	            <p class="mb-0 font-11 opacity-50">1 Hari yang lalu</p>
+	          </div>
+	          <div class="align-self-center ms-auto text-end">
+	            <h4 class="pt-1 mb-n1 color-red-dark">{{minMax.max.suhu}} C</h4>
+	            <p class="mb-0 font-12 opacity-50">12:20</p>
+	          </div>
+	        </a>
+	    </div>
+    </div>
+</template>

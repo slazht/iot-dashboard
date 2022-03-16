@@ -1,0 +1,26 @@
+<template name="layout">
+	<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+	<div id="page">
+
+	    <div id="footer-bar" class="footer-bar-1 footer-bar-detached">
+	      <a href="/"><i class="bi bi-wallet2"></i><span>Sensor</span></a>
+	      <a href="/"><i class="bi bi-graph-up"></i><span>Camera</span></a>
+	      <a href="/" class="circle-nav-2"><i class="bi bi-house-fill"></i><span>Home</span></a>
+	      <a href="/"><i class="bi bi-receipt"></i><span>Lampu</span></a>
+	      <a href="/"><i class="bi bi-three-dots"></i><span>More</span></a>
+	    </div>
+
+	    <div class="header-bar header-fixed header-app header-auto-show">
+	      <a href="#" data-back-button><i class="bi bi-chevron-left font-13"></i></a>
+	      <a href="#" class="header-title">Back to Components</a>
+	      <a href="#" data-toggle-theme class="show-on-theme-dark"><i class="bi bi-sun-fill color-yellow-dark font-16"></i></a>
+	      <a href="#" data-toggle-theme class="show-on-theme-light"><i class="bi bi-moon-fill font-13"></i></a>
+	      <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-sidebar"><i class="font-16 bi bi-list"></i></a>
+	    </div>
+
+	    <div class="page-content footer-clear">
+	    	{{> Template.dynamic template=main}}
+	    </div>
+
+	</div>
+</template>
