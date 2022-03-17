@@ -12,7 +12,7 @@ Template.suhu.onRendered(function helloOnCreated() {
   	Meteor.subscribe('Suhu',{},{sort:{createdAt:-1},limit:20});
   	Meteor.call('Suhu.maxmin',(err,suc)=>{
   		if(suc){
-  			console.log(suc)
+  			//console.log(suc)
   			Session.set('minmax',suc)
   		}
   	})
@@ -20,20 +20,22 @@ Template.suhu.onRendered(function helloOnCreated() {
 
 Template.suhu.helpers({
 	suhulist(){
-		const data = Suhu.find({},{sort:{createdAt:-1},limit:20});
+		const data = Suhu.find({},{sort:{createdAt:1},limit:20});
 		console.log(data);
 		let dat = []
+		let da2 = []
 		let lbl = []
 		if(data){
 			data.forEach(x=>{
 				dat.push(x.suhu)
+				da2.push(x.motion)
 				lbl.push(moment(x.createdAt).format('D/M hh:mm'))
 			});
 
 			setTimeout(function() {
-				console.log(dat)
-				console.log(lbl)
-				createChart(dat, lbl);
+				//console.log(dat)
+				//console.log(lbl)
+				createChart(dat, da2, lbl);
 			}, 1000);
 		}
 		
@@ -44,6 +46,12 @@ Template.suhu.helpers({
     		return mim
     	}
   	},
+  	motion(){
+  		const mos = Suhu.findOne({},{sort:{createdAt:-1},limit:1})
+  		if(mos){
+  			return mos
+  		}
+  	}
 });
 
 Template.suhu.events({
@@ -53,7 +61,7 @@ Template.suhu.events({
   },
 });
 
-function createChart(data, label){
+function createChart(data, data2, label){
 	if ( document.querySelector("#charts-demo-1").hasChildNodes() ) {
         document.querySelector("#charts-demo-1").innerHTML = '';
     }
@@ -62,8 +70,8 @@ function createChart(data, label){
 	          name: 'Suhu',
 	          data: data
 	        }, {
-	          name: 'Kembapan',
-	          data: [11, 32, 45, 32, 34, 52]
+	          name: 'Motion',
+	          data: data2
 	        }],
           chart: {
           height: 350,
