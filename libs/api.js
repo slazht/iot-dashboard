@@ -17,4 +17,15 @@ if (Meteor.isServer) {
 	    }
 	});
 
+	Api.addRoute('getsuhu/:id', {authRequired: false}, {
+	    get: function () {
+	      	return {status:'success'}
+	    },
+	    post: function() {
+	    	//console.log(this.bodyParams)
+	    	const data = Suhu.findOne({},{sort:{createdAt:-1}})
+	    	return {status:'success',suhu:data.suhu}
+	    }
+	});
+
 }
